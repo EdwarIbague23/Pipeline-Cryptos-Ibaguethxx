@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Kafka Monitor - Dashboard en Tiempo Real</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 CRYPTO KAFKA MONITOR</h1>
+        <p>Pipeline de Datos en Tiempo Real</p>
+    </div>
+
+    <div class="main-container">
+        <div class="panel">
+            <div class="panel-header">PRODUCER</div>
+            <button id="btn-iniciar" class="btn" onclick="iniciarProducer()">[Iniciar]</button>
+            <button id="btn-detener" class="btn" onclick="detenerProducer()" disabled>[Detener]</button>
+            <button class="btn" onclick="generarRafaga()">[Ráfaga x5]</button>
+            <div style="margin-top: 15px;">
+                <span id="status-indicator" class="status-indicator"></span>
+                <span id="status-text">INACTIVO</span>
+            </div>
+            <div class="stat-row" style="margin-top: 10px;">
+                <span class="stat-label">Enviados:</span>
+                <span id="enviados-count" class="stat-value">0</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">KAFKA BROKER</div>
+            <div class="stat-row">
+                <span class="stat-label">Cola:</span>
+                <span id="cola-count" class="stat-value">0 msgs</span>
+            </div>
+            <div class="stat-row">
+                <span class="stat-label">Offset:</span>
+                <span id="offset-value" class="stat-value">#0</span>
+            </div>
+            <div class="cola-mensajes" id="cola-mensajes"></div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">CONSUMER</div>
+            <div id="consumer-prices"></div>
+        </div>
+    </div>
+
+    <div class="ventana-panel">
+        <div class="panel-header">VENTANA TUMBLING — Último minuto</div>
+        <div class="ventana-timer" id="ventana-timer">00:00</div>
+        <div class="ventana-stats" id="ventana-stats"></div>
+    </div>
+
+    <div class="log-panel" id="log-panel">
+        <div class="panel-header">LOG EN TIEMPO REAL</div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-stats">
+            <div class="footer-stat">
+                <div class="label">Producidos</div>
+                <div class="value" id="footer-producidos">0</div>
+            </div>
+            <div class="footer-stat">
+                <div class="label">Consumidos</div>
+                <div class="value" id="footer-consumidos">0</div>
+            </div>
+            <div class="footer-stat">
+                <div class="label">Cola</div>
+                <div class="value" id="footer-cola">0</div>
+            </div>
+            <div class="footer-stat">
+                <div class="label">Ventana</div>
+                <div class="value" id="footer-ventana">00:00 restantes</div>
+            </div>
+        </div>
+        <div class="footer-controls">
+            <span>Velocidad:</span>
+            <div class="speed-control">
+                <button class="btn speed-btn" onclick="setSpeed('lenta')">Lenta</button>
+                <button class="btn speed-btn active" onclick="setSpeed('normal')">Normal</button>
+                <button class="btn speed-btn" onclick="setSpeed('rapida')">Rápida</button>
+            </div>
+            <button class="btn" onclick="reiniciar()">🔄 Reiniciar</button>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

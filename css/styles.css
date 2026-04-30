@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: #0f1117;
+    color: #00ff88;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    border-bottom: 2px solid #1e2d40;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 28px;
+    text-shadow: 0 0 10px #00ff88;
+}
+
+.header p {
+    color: #6b7c93;
+    margin-top: 5px;
+}
+
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.panel {
+    border: 1px solid #1e2d40;
+    padding: 15px;
+    background: #0a0d12;
+}
+
+.panel-header {
+    font-size: 14px;
+    font-weight: bold;
+    color: #00ff88;
+    border-bottom: 1px solid #1e2d40;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.btn {
+    background: #1e2d40;
+    color: #00ff88;
+    border: 1px solid #00ff88;
+    padding: 8px 16px;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #00ff88;
+    color: #0f1117;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ff4444;
+    margin-right: 8px;
+}
+
+.status-indicator.active {
+    background: #00ff88;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #1e2d40;
+}
+
+.stat-label {
+    color: #6b7c93;
+}
+
+.stat-value {
+    color: #00ff88;
+}
+
+.cola-mensajes {
+    background: #0a0d12;
+    border: 1px solid #1e2d40;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.cola-msg {
+    padding: 4px;
+    border-bottom: 1px solid #1e2d40;
+    font-size: 12px;
+}
+
+.cola-msg.processing {
+    color: #ffaa00;
+}
+
+.ventana-panel {
+    border: 1px solid #1e2d40;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #0a0d12;
+}
+
+.ventana-timer {
+    text-align: center;
+    font-size: 24px;
+    color: #00ff88;
+    margin-bottom: 10px;
+}
+
+.ventana-stats {
+    font-size: 13px;
+}
+
+.ventana-stats .coin-row {
+    padding: 5px;
+    border-bottom: 1px solid #1e2d40;
+}
+
+.log-panel {
+    border: 1px solid #1e2d40;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #0a0d12;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    font-size: 12px;
+    padding: 3px 0;
+    border-bottom: 1px solid #1e2d40;
+}
+
+.log-entry .timestamp {
+    color: #6b7c93;
+}
+
+.log-entry .producer-log {
+    color: #00aaff;
+}
+
+.log-entry .broker-log {
+    color: #ffaa00;
+}
+
+.log-entry .consumer-log {
+    color: #00ff88;
+}
+
+.log-entry .alerta {
+    color: #ff4444;
+    animation: highlight 0.5s;
+}
+
+@keyframes highlight {
+    0%, 100% { background: transparent; }
+    50% { background: #ff444433; }
+}
+
+.footer {
+    border: 1px solid #1e2d40;
+    padding: 15px;
+    background: #0a0d12;
+}
+
+.footer-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.footer-stat {
+    text-align: center;
+}
+
+.footer-stat .label {
+    color: #6b7c93;
+    font-size: 12px;
+}
+
+.footer-stat .value {
+    font-size: 18px;
+    color: #00ff88;
+}
+
+.footer-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.speed-control {
+    display: flex;
+    gap: 5px;
+}
+
+.speed-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.speed-btn.active {
+    background: #00ff88;
+    color: #0f1117;
+}
+
+.crypto-price {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #1e2d40;
+}
+
+.crypto-symbol {
+    font-weight: bold;
+}
+
+.crypto-value {
+    color: #00ff88;
+}
+
+.crypto-change {
+    margin-left: 10px;
+}
+
+.crypto-change.up {
+    color: #00ff88;
+}
+
+.crypto-change.down {
+    color: #ff4444;
+}
+
+.crypto-change.neutral {
+    color: #6b7c93;
+}
